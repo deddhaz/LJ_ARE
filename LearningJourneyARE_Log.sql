@@ -42,10 +42,14 @@ SELECT
     rq.num_attempts,
     -- Course Level
     CASE 
+		WHEN rq.course_title LIKE '%Learning Journey : ARE - Basic -%' THEN 'Basic'
+		WHEN rq.course_title LIKE '%Learning Journey : ARE - Intermediate -%' THEN 'Intermediate'
         WHEN rq.course_title LIKE '%Learning Journey : ARE - Intermediate Course Lv I %' THEN 'Intermediate Course Level 1'
         WHEN rq.course_title LIKE '%Learning Journey : ARE - Intermediate Course Lv II%' THEN 'Intermediate Course Level 2'
+		WHEN rq.course_title LIKE '%Learning Journey : ARE - Advance -%' THEN 'Advance'
         WHEN rq.course_title LIKE '%Learning Journey : ARE - Advance Course Lv I %'      THEN 'Advance Course Level 1'
         WHEN rq.course_title LIKE '%Learning Journey : ARE - Advance Course Lv II%'      THEN 'Advance Course Level 2'
+		-- SPV
         WHEN rq.course_title LIKE '%Learning Journey : SPV Agency - Intermediate Course%' THEN 'Intermediate Course'
         WHEN rq.course_title LIKE '%Learning Journey : SPV Agency - Advance Course%'      THEN 'Advance Course'
         ELSE 'Unknown Course Level'
